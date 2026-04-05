@@ -38,5 +38,5 @@ El backend está hecho con **Node.js** y **Express**, y utiliza la API de **With
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/remove-bg-app.git
+git clone https://github.com/luisbossa/NoBG.git
 cd remove-bg-app
