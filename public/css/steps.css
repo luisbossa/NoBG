@@ -1,0 +1,73 @@
+.steps {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: relative;
+  counter-reset: step;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 38px;
+  left: 8%;
+  width: 84%;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.step {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #f1f5f9;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.step h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.step p {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .steps::before {
+    display: none;
+  }
+}

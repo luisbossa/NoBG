@@ -1,16 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
-
-body {
-  background: #f9fafb;
-  color: #111;
-}
-
-/* MAIN */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -23,14 +10,12 @@ body {
   margin-bottom: 40px;
 }
 
-/* TOOL */
 .tool-box {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
 }
 
-/* UPLOAD */
 .upload-box {
   flex: 1;
   min-height: 300px;
@@ -58,20 +43,32 @@ body {
   cursor: pointer;
 }
 
-/* PREVIEW */
 .preview-box {
   flex: 1;
   background: white;
   border-radius: 20px;
   padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
 }
 
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 320px;
   overflow: hidden;
   border-radius: 15px;
+  background-image:
+    linear-gradient(45deg, #eee 25%, transparent 25%),
+    linear-gradient(-45deg, #eee 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #eee 75%),
+    linear-gradient(-45deg, transparent 75%, #eee 75%);
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0px;
 }
 
 .image-wrapper img {
@@ -83,16 +80,99 @@ body {
 #imgAfterWrapper {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  clip-path: inset(0 50% 0 0);
+}
+
+.image-wrapper::before {
+  content: "ANTES";
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  z-index: 20;
+}
+
+.image-wrapper::after {
+  content: "DESPUÉS";
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  z-index: 20;
 }
 
 .slider-line {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 2px;
+  width: 3px;
   background: white;
   left: 50%;
+  z-index: 30;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.slider-handle {
+  height: 44px;
+  width: 44px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: 3px solid white;
+  background: rgba(255, 255, 255, 0.6);
+
+  border-radius: 50%;
+
+  z-index: 40;
+
+  cursor: ew-resize;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(4px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+  transition: transform 0.2s ease;
+}
+
+.slider-handle:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.slider-handle::before,
+.slider-handle::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #333;
+  border-right: 2px solid #333;
+  position: absolute;
+}
+
+.slider-handle::before {
+  transform: rotate(-135deg);
+  left: 11px;
+}
+
+.slider-handle::after {
+  transform: rotate(45deg);
+  right: 11px;
 }
 
 input[type="range"] {
@@ -100,21 +180,7 @@ input[type="range"] {
   inset: 0;
   opacity: 0;
   cursor: ew-resize;
-}
-
-/* STEPS */
-.steps {
-  margin-top: 80px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.step {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  transition: 0.3s;
+  z-index: 50;
 }
 
 .upload-box.drag {
@@ -123,29 +189,57 @@ input[type="range"] {
 }
 
 .btn-download {
-  margin-top: 15px;
+  margin-top: 18px;
   width: 100%;
-  padding: 12px;
-  background: #16a34a;
+  padding: 14px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
   border: none;
-  border-radius: 30px;
-  cursor: pointer;
+  border-radius: 12px;
   font-weight: 600;
-  transition: 0.2s;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.35s ease;
+}
+
+.btn-download .material-symbols-rounded {
+  font-size: 20px;
+}
+
+.btn-download::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transition: left 0.6s ease;
 }
 
 .btn-download:hover {
-  background: #15803d;
+  background: linear-gradient(135deg, #22c55e, #15803d);
+}
+
+.btn-download:hover::before {
+  left: 120%;
 }
 
 @media (max-width: 768px) {
   .tool-box {
     flex-direction: column;
-  }
-
-  .steps {
-    grid-template-columns: 1fr;
   }
 
   .title {

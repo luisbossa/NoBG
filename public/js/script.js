@@ -6,8 +6,9 @@ const imgBefore = document.getElementById("imgBefore");
 const imgAfter = document.getElementById("imgAfter");
 const imgAfterWrapper = document.getElementById("imgAfterWrapper");
 
-const slider = document.getElementById("slider");
+const slider = document.querySelector('input[type="range"]');
 const sliderLine = document.getElementById("sliderLine");
+const sliderHandle = document.querySelector(".slider-handle");
 
 let resultImage = "";
 
@@ -92,19 +93,32 @@ async function processImage(file) {
 /* =========================
    SLIDER (ANTES / DESPUÉS)
 ========================= */
-slider.addEventListener("input", () => {
-  const value = slider.value;
-
+function updateSlider(value) {
   imgAfterWrapper.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+
   sliderLine.style.left = value + "%";
+
+  if (sliderHandle) {
+    sliderHandle.style.left = value + "%";
+  }
+}
+
+slider.addEventListener("input", () => {
+  updateSlider(slider.value);
 });
+
+/* iniciar slider en 50% */
+updateSlider(slider.value);
 
 /* =========================
    DOWNLOAD BUTTON
 ========================= */
 const downloadBtn = document.createElement("button");
 
-downloadBtn.textContent = "Descargar imagen";
+downloadBtn.innerHTML = `
+  <span class="material-symbols-rounded">download</span>
+  Descargar imagen HD
+`;
 downloadBtn.className = "btn-download";
 
 document.querySelector(".preview-box").appendChild(downloadBtn);
