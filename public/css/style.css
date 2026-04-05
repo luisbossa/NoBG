@@ -10,42 +10,6 @@ body {
   color: #111;
 }
 
-/* NAV */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: white;
-  border-bottom: 1px solid #eee;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: #666;
-  text-decoration: none;
-}
-
-.nav-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.btn-light {
-  background: #f1f5f9;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-}
-
 /* MAIN */
 .container {
   max-width: 1100px;

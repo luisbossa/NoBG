@@ -10,18 +10,20 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/header.css">
 </head>
 
 <body>
 
-    <!-- NAV -->
-    <nav class="navbar">
-        <div class="logo">
-             <span>NoBG</span>
+    <nav class="navbar" id="navbar">
+        <div class="logo-div">
+            <img class="logo-img" src="/images/logo.png" alt="noBG logo">
         </div>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
             <a href="#">Mejorar imagen</a>
             <a href="#">Mejorar video</a>
             <a href="#">PDF</a>
@@ -29,6 +31,10 @@
 
         <div class="nav-actions">
             <button class="btn-light">App</button>
+
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
         </div>
     </nav>
 
@@ -86,7 +92,8 @@
 
     </main>
 
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/header.js"></script>
 </body>
 
 </html>
