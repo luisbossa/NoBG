@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove BG</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="logo">
+             <span>NoBG</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Mejorar imagen</a>
+            <a href="#">Mejorar video</a>
+            <a href="#">PDF</a>
+        </div>
+
+        <div class="nav-actions">
+            <button class="btn-light">App</button>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <h1 class="title">Quitar fondo de imágenes</h1>
+
+        <div class="tool-box">
+
+            <!-- UPLOAD -->
+            <div class="upload-box" id="uploadBox">
+                <span class="material-symbols-rounded upload-icon">image</span>
+                <p>Arrastra o sube tu imagen</p>
+                <small>JPG, PNG, WEBP</small>
+
+                <input type="file" id="fileInput" hidden>
+                <button id="selectBtn" class="btn-primary">Seleccionar imagen</button>
+            </div>
+
+            <!-- PREVIEW -->
+            <div class="preview-box">
+                <div class="image-wrapper">
+                    <img id="imgBefore" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800">
+
+                    <div id="imgAfterWrapper">
+                        <img id="imgAfter" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800">
+                    </div>
+
+                    <div class="slider-line" id="sliderLine"></div>
+
+                    <input type="range" id="slider" min="0" max="100" value="50">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- STEPS -->
+        <section class="steps">
+            <div class="step">
+                <h3>Sube tu imagen</h3>
+                <p>Arrastra o selecciona tu imagen fácilmente</p>
+            </div>
+
+            <div class="step">
+                <h3>IA elimina fondo</h3>
+                <p>Procesamiento automático en segundos</p>
+            </div>
+
+            <div class="step">
+                <h3>Descarga</h3>
+                <p>Obtén tu imagen en alta calidad</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
