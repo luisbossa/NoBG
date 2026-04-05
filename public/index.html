@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remove BG</title>
+    <title>noBG</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/hero.css">
     <link rel="stylesheet" href="/css/steps.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 
 <body>
@@ -26,14 +28,12 @@
         </div>
 
         <div class="nav-links" id="navLinks">
-            <a href="#">Mejorar imagen</a>
-            <a href="#">Mejorar video</a>
-            <a href="#">PDF</a>
+            <a href="#">Eliminar fondo</a>
+            <a href="#">Recortar imagen</a>
+            <a href="#">Convertir a WEBP</a>
         </div>
 
         <div class="nav-actions">
-            <button class="btn-light">App</button>
-
             <button class="menu-toggle" id="menuToggle">
                 ☰
             </button>
@@ -43,7 +43,24 @@
     <!-- MAIN -->
     <main class="container">
 
-        <h1 class="title">Quitar fondo de imágenes</h1>
+        <div class="hero-info">
+            <p class="hero-description">
+                Elimina el fondo de cualquier imagen automáticamente.
+                Descarga tu imagen en alta calidad y sin marcas de agua.
+            </p>
+
+            <div class="hero-pills">
+                <div class="pill">
+                    <span class="material-symbols-rounded">check_circle</span>
+                    Descargas HD Gratis
+                </div>
+
+                <div class="pill">
+                    <span class="material-symbols-rounded">check_circle</span>
+                    Sin marca de agua
+                </div>
+            </div>
+        </div>
 
         <div class="tool-box">
             <!-- UPLOAD -->
@@ -60,10 +77,10 @@
             <div class="preview-box">
                 <div class="image-wrapper">
 
-                    <img id="imgBefore" src="/images/before.webp">
+                    <img id="imgBefore" src="/images/before.avif">
 
                     <div id="imgAfterWrapper">
-                        <img id="imgAfter" src="/images/after.webp">
+                        <img id="imgAfter" src="/images/after.png">
                     </div>
 
                     <div class="slider-line" id="sliderLine"></div>
@@ -77,24 +94,71 @@
         </div>
 
         <!-- STEPS -->
-        <section class="steps">
-            <div class="step">
-                <h3>Sube tu imagen</h3>
-                <p>Arrastra o selecciona tu imagen fácilmente</p>
+        <section class="steps-wrapper">
+            <div class="steps-header">
+                <h2 class="steps-title">Cómo eliminar el fondo de una imagen</h2>
             </div>
 
-            <div class="step">
-                <h3>IA elimina fondo</h3>
-                <p>Procesamiento automático en segundos</p>
-            </div>
+            <div class="steps-div">
+                <div class="step">
+                    <h3>Sube tu imagen</h3>
+                    <p>Selecciona o arrastra una imagen desde tu dispositivo. Aceptamos archivos JPG, PNG y WEBP para
+                        que
+                        empieces rápidamente.</p>
+                </div>
 
-            <div class="step">
-                <h3>Descarga</h3>
-                <p>Obtén tu imagen en alta calidad</p>
+                <div class="step">
+                    <h3>La IA elimina el fondo</h3>
+                    <p>Nuestra tecnología detecta automáticamente el sujeto principal y elimina el fondo de la imagen en
+                        cuestión de segundos.</p>
+                </div>
+
+                <div class="step">
+                    <h3>Descarga tu imagen en HD</h3>
+                    <p>Obtén tu imagen en formato PNG con fondo transparente y alta resolución, lista para usar en
+                        cualquier
+                        proyecto.</p>
+                </div>
             </div>
         </section>
 
     </main>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <img class="footer-logo" src="/images/footer-logo.png" alt="noBG logo">
+
+                <p class="footer-description">
+                    Herramientas inteligentes para editar y optimizar tus imágenes online.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Herramientas</h4>
+
+                <a href="#">Eliminar fondo</a>
+                <a href="#">Recortar imagen</a>
+                <a href="#">Convertir a WEBP</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Soporte</h4>
+
+                <a href="#">Preguntas frecuentes</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 noBG. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
 
     <script src="/js/script.js"></script>
     <script src="/js/header.js"></script>

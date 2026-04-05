@@ -1,28 +1,20 @@
-/* NAVBAR */
-
 .navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 40px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #eee;
-  transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 100;
 }
 
-/* cuando hace scroll */
-
-.navbar.scrolled {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+.navbar.scrolled{
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-bottom: 1px solid #e5e7eb;
 }
-
-/* logo */
 
 .logo-div {
   width: 95px;
@@ -32,8 +24,6 @@
   width: 100%;
   display: block;
 }
-
-/* links */
 
 .nav-links {
   display: flex;
@@ -50,32 +40,14 @@
 }
 
 .nav-links a:hover {
-  color: #111;
+  color: #2563eb;
 }
-
-/* actions */
 
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-
-.btn-light {
-  background: #f1f5f9;
-  border: none;
-  padding: 9px 16px;
-  border-radius: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-light:hover {
-  background: #e2e8f0;
-}
-
-/* menu toggle */
 
 .menu-toggle {
   display: none;
@@ -84,8 +56,6 @@
   border: none;
   cursor: pointer;
 }
-
-/* MOBILE */
 
 @media (max-width: 768px) {
   .navbar {
@@ -119,9 +89,5 @@
 
   .menu-toggle {
     display: block;
-  }
-
-  .btn-light {
-    display: none;
   }
 }

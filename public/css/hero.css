@@ -1,0 +1,38 @@
+.hero-info {
+  max-width: 680px;
+  margin: 10px auto 40px auto;
+  text-align: center;
+}
+
+.hero-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.hero-pills {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  background: #f3f4f6;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+  border: 1px solid #e5e7eb;
+  gap: 6px;
+  transition: background 0.25s ease;
+}
+
+.pill .material-symbols-rounded {
+  font-size: 18px;
+  color: #22c55e;
+}

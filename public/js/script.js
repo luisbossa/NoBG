@@ -94,7 +94,7 @@ async function processImage(file) {
    SLIDER (ANTES / DESPUÉS)
 ========================= */
 function updateSlider(value) {
-  imgAfterWrapper.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+  imgAfterWrapper.style.clipPath = `inset(0 0 0 ${value}%)`;
 
   sliderLine.style.left = value + "%";
 
