@@ -7,7 +7,6 @@
     <title>noBG</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -17,7 +16,10 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/hero.css">
     <link rel="stylesheet" href="/css/steps.css">
+    <link rel="stylesheet" href="/css/crop-section.css">
     <link rel="stylesheet" href="/css/footer.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.min.css">
 </head>
 
 <body>
@@ -41,7 +43,7 @@
     </nav>
 
     <!-- MAIN -->
-    <main class="container">
+    <section class="remove-container">
 
         <div class="hero-info">
             <p class="hero-description">
@@ -125,7 +127,63 @@
             </div>
         </section>
 
-    </main>
+    </section>
+
+
+
+
+    <section class="crop-section">
+        <div class="crop-header-div">
+            <h2 class="steps-title">Recortar imagen</h2>
+        </div>
+
+        <div class="crop-container">
+
+            <!-- Área de carga -->
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="cropFileInput" hidden accept="image/*">
+                <p>Arrastra una imagen o</p>
+                <button type="button" id="cropSelectBtn">Seleccionar Imagen</button>
+            </div>
+
+            <!-- Editor -->
+            <div class="editor hidden" id="editor">
+                <div class="image-area">
+                    <img id="image" alt="Imagen a recortar">
+                </div>
+
+                <div class="controls">
+                    <h3>Opciones de recorte</h3>
+
+                    <label for="widthInput">Ancho (px)</label>
+                    <input type="number" id="widthInput" min="1">
+
+                    <label for="heightInput">Altura (px)</label>
+                    <input type="number" id="heightInput" min="1">
+
+                    <button type="button" id="cropBtn">Recortar Imagen</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <footer class="footer">
         <div class="footer-container">
@@ -163,6 +221,8 @@
 
     <script src="/js/script.js"></script>
     <script src="/js/header.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="/js/crop-section.js"></script>
 </body>
 
 </html>

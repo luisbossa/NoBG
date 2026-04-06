@@ -1,7 +1,7 @@
-.container {
+.remove-container {
   max-width: 1100px;
+  padding: 2rem 20px 5rem;
   margin: auto;
-  padding: 40px 20px;
 }
 
 .tool-box {
