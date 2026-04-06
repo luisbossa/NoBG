@@ -27,7 +27,7 @@
   left: 8%;
   width: 84%;
   height: 2px;
-  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  background: linear-gradient(90deg, #0154B6, #60a5fa);
   z-index: 0;
   opacity: 0.15;
 }
@@ -59,7 +59,7 @@
   border-radius: 50%;
   font-weight: 600;
   font-size: 14px;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background: linear-gradient(135deg, #0154B6, #3b82f6);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 

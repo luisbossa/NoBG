@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/hero.css">
     <link rel="stylesheet" href="/css/steps.css">
     <link rel="stylesheet" href="/css/crop-section.css">
+    <link rel="stylesheet" href="/css/convert.css">
     <link rel="stylesheet" href="/css/footer.css">
 
     <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.min.css">
@@ -146,6 +147,7 @@
 
             <!-- Editor -->
             <div class="editor hidden" id="editor">
+
                 <div class="image-area">
                     <img id="image" alt="Imagen a recortar">
                 </div>
@@ -159,8 +161,19 @@
                     <label for="heightInput">Altura (px)</label>
                     <input type="number" id="heightInput" min="1">
 
-                    <button type="button" id="cropBtn">Recortar Imagen</button>
+                    <div class="crop-buttons">
+                        <button type="button" id="cropBtn">
+                            <span class="material-symbols-rounded crop-icon">crop</span>
+                            Recortar
+                        </button>
+                        <button type="button" id="downloadBtn" class="btn-download">
+                            <span class="material-symbols-rounded">download</span>
+                            Descargar
+                        </button>
+                    </div>
+
                 </div>
+
             </div>
 
         </div>
@@ -169,7 +182,33 @@
 
 
     <section id="convert" class="convert">
+        <div class="convert-header">
+            <h2 class="steps-title">Convertir a WebP</h2>
+        </div>
 
+        <div class="convert-container">
+
+            <!-- Área de carga -->
+            <div class="convert-upload-area" id="convertUploadArea">
+                <input type="file" id="convertFileInput" hidden accept="image/jpeg,image/png,image/jpg">
+                <p>Arrastra tu imagen o</p>
+                <button type="button" id="convertSelectBtn">Seleccionar Imagen</button>
+                <small>Formatos: JPG, JPEG, PNG</small>
+            </div>
+
+            <!-- Preview -->
+            <div class="convert-preview" id="convertPreview">
+                <div class="image-preview">
+                    <!-- Imagen predeterminada -->
+                    <img id="convertImage" src="/images/remove-img.jpg" alt="Imagen a convertir">
+                </div>
+                <button type="button" id="convertBtn" class="btn-download">
+                    <span class="material-symbols-rounded">download</span>
+                    Descargar WebP
+                </button>
+            </div>
+
+        </div>
     </section>
 
 
@@ -212,6 +251,7 @@
     <script src="/js/header.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
     <script src="/js/crop-section.js"></script>
+    <script src="/js/convert.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,58 @@
+.convert {
+  padding: 5rem 20px;
+}
+
+.convert-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.convert-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.convert-upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: 16px;
+  padding: 60px;
+  text-align: center;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.convert-upload-area:hover {
+  border-color: #0154B6;
+}
+
+.convert-upload-area button {
+  padding: 12px 18px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin: 10px 8px 0 0;
+  background: #0154B6;
+  cursor: pointer;
+}
+
+.convert-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.convert-preview img {
+  max-width: 100%;
+  max-height: 400px;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+

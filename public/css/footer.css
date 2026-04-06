@@ -1,5 +1,4 @@
 .footer {
-  margin-top: 120px;
   background: #ffffff;
   border-top: 1px solid #e5e7eb;
 }
@@ -51,7 +50,7 @@
 }
 
 .footer-column a:hover {
-  color: #2563eb;
+  color: #0154B6;
 }
 
 .footer-bottom {
