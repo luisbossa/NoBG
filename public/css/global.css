@@ -5,6 +5,10 @@
   font-family: "Inter", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #f9fafb;
   color: #1a1a1a;
