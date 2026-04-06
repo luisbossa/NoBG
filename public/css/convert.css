@@ -53,6 +53,7 @@
   display: block;
   object-fit: contain;
   border-radius: 12px;
+  border: 2px solid #e5e7eb;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
