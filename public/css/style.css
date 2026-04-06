@@ -46,45 +46,47 @@
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+/* IMAGES */
+
 .image-wrapper {
   position: relative;
   width: 100%;
   height: 320px;
-  overflow: hidden;
-  border-radius: 15px;
-  background-image:
-    linear-gradient(45deg, #eee 25%, transparent 25%),
-    linear-gradient(-45deg, #eee 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #eee 75%),
-    linear-gradient(-45deg, transparent 75%, #eee 75%);
-  background-size: 20px 20px;
-  background-position:
-    0 0,
-    0 10px,
-    10px -10px,
-    -10px 0px;
 }
 
-.image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* BEFORE IMAGE */
 
-#imgAfterWrapper {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+#imgBefore {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(45deg, #e5e7eb 25%, transparent 25%),
-    linear-gradient(-45deg, #e5e7eb 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #e5e7eb 75%),
-    linear-gradient(-45deg, transparent 75%, #e5e7eb 75%);
-  background-size: 20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
 }
+
+/* AFTER WRAPPER (pattern background) */
+
+#imgAfterWrapper {
+  position: absolute;
+  inset: -1px;
+  overflow: hidden;
+  z-index: 2;
+  background-image: url("/images/no-bg.avif");
+}
+
+/* AFTER IMAGE */
+
+#imgAfter {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 3;
+}
+
+/* LABELS */
 
 .image-wrapper::before {
   content: "ANTES";
@@ -112,6 +114,8 @@
   z-index: 20;
 }
 
+/* SLIDER LINE */
+
 .slider-line {
   position: absolute;
   top: 0;
@@ -122,6 +126,8 @@
   z-index: 30;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
+
+/* HANDLE */
 
 .slider-handle {
   height: 44px;
@@ -167,6 +173,47 @@
   right: 11px;
 }
 
+/* SKELETON LOADING */
+
+.after-skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 5; /* antes 2 */
+  background: linear-gradient(
+    90deg,
+    #f1f5f9 25%,
+    #e2e8f0 37%,
+    #f1f5f9 63%
+  );
+  background-size: 400% 100%;
+  animation: skeletonLoading 1.2s infinite linear;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes skeletonLoading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* cuando está cargando */
+
+.preview-box.loading .after-skeleton {
+  opacity: 1;
+}
+
+/* ocultar imagen while loading */
+
+.loading #imgAfter {
+  opacity: 0;
+}
+
+/* RANGE */
+
 input[type="range"] {
   position: absolute;
   inset: 0;
@@ -175,10 +222,14 @@ input[type="range"] {
   z-index: 50;
 }
 
+/* DRAG STATE */
+
 .upload-box.drag {
   border-color: #2563eb;
   background: #eff6ff;
 }
+
+/* DOWNLOAD BUTTON */
 
 .btn-download {
   margin-top: 18px;
@@ -229,8 +280,14 @@ input[type="range"] {
   left: 120%;
 }
 
+/* RESPONSIVE */
+
 @media (max-width: 768px) {
   .tool-box {
     flex-direction: column;
+  }
+
+  .image-wrapper {
+    height: 280px;
   }
 }

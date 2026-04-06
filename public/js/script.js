@@ -9,6 +9,7 @@ const imgAfterWrapper = document.getElementById("imgAfterWrapper");
 const slider = document.querySelector('input[type="range"]');
 const sliderLine = document.getElementById("sliderLine");
 const sliderHandle = document.querySelector(".slider-handle");
+const previewBox = document.querySelector(".preview-box");
 
 let resultImage = "";
 
@@ -27,20 +28,17 @@ fileInput.addEventListener("change", handleFile);
 ========================= */
 uploadBox.addEventListener("dragover", (e) => {
   e.preventDefault();
-  uploadBox.style.borderColor = "#2563eb";
-  uploadBox.style.background = "#eff6ff";
+  uploadBox.classList.add("drag");
 });
 
 uploadBox.addEventListener("dragleave", () => {
-  uploadBox.style.borderColor = "#ddd";
-  uploadBox.style.background = "white";
+  uploadBox.classList.remove("drag");
 });
 
 uploadBox.addEventListener("drop", (e) => {
   e.preventDefault();
 
-  uploadBox.style.borderColor = "#ddd";
-  uploadBox.style.background = "white";
+  uploadBox.classList.remove("drag");
 
   const file = e.dataTransfer.files[0];
   if (file) processImage(file);
@@ -60,9 +58,23 @@ function handleFile() {
    PROCESS IMAGE
 ========================= */
 async function processImage(file) {
-  imgBefore.src = URL.createObjectURL(file);
+  const previewBox = document.querySelector(".preview-box");
 
-  imgAfter.style.opacity = "0.5";
+  /* activar loading inmediatamente */
+  previewBox.classList.add("loading");
+
+  const localImage = URL.createObjectURL(file);
+
+  /* mostrar imagen BEFORE inmediatamente */
+  imgBefore.src = localImage;
+
+  /* limpiar AFTER */
+  imgAfter.src = "";
+  imgAfter.style.opacity = "0";
+
+  /* reiniciar slider */
+  slider.value = 50;
+  updateSlider(50);
 
   const formData = new FormData();
   formData.append("image", file);
@@ -77,16 +89,23 @@ async function processImage(file) {
 
     if (!data.result) {
       alert("Error en respuesta");
+      previewBox.classList.remove("loading");
       return;
     }
 
     resultImage = data.result;
 
     imgAfter.src = resultImage;
-    imgAfter.style.opacity = "1";
+
+    /* cuando la imagen cargue quitar skeleton */
+    imgAfter.onload = () => {
+      previewBox.classList.remove("loading");
+      imgAfter.style.opacity = "1";
+    };
   } catch (err) {
     console.error(err);
     alert("Error procesando imagen");
+    previewBox.classList.remove("loading");
   }
 }
 
@@ -107,7 +126,7 @@ slider.addEventListener("input", () => {
   updateSlider(slider.value);
 });
 
-/* iniciar slider en 50% */
+/* iniciar slider */
 updateSlider(slider.value);
 
 /* =========================
@@ -116,9 +135,10 @@ updateSlider(slider.value);
 const downloadBtn = document.createElement("button");
 
 downloadBtn.innerHTML = `
-  <span class="material-symbols-rounded">download</span>
-  Descargar imagen HD
+<span class="material-symbols-rounded">download</span>
+Descargar imagen HD
 `;
+
 downloadBtn.className = "btn-download";
 
 document.querySelector(".preview-box").appendChild(downloadBtn);

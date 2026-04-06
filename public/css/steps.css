@@ -75,12 +75,26 @@
 }
 
 @media (max-width: 900px) {
-  .steps-wrapper {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .steps-div {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .steps::before {
+  .steps-div::before {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .steps-div {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .steps-title {
+    font-size: 1.6rem;
+  }
+
+  .step {
+    padding: 30px 20px;
   }
 }
